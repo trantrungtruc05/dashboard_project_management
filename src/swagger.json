@@ -1,0 +1,2586 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+        "title":"BTS Portal v2 API",
+        "description":"This is the major backend server for BTS Portal version 2.",
+        "version":"1.0"
+    },
+    "servers": [
+        {"url":"http://localhost:3009", "description": "Development server"},
+        {"url":"https://api8.vibnbs.com/v1", "description": "Production server"}
+    ],
+    "host": "localhost:3000",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "Teams",
+            "description": "API for teams"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "components": {
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "paths": {
+        "/team": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Teams"
+                ],
+                "description": "Create teams",
+                "requestBody": {
+                    "description": "Save Team Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Teams"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New teams is created",
+                        "schema": {
+                            "$ref": "#/definitions/Teams"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Teams"
+                ],
+                "summary": "Get all teams",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Teams"
+                        }
+                    }
+                }
+            }
+        },
+        "/team/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID team want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Teams"
+                ],
+                "summary": "Get teams by Id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Teams"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Teams"
+                ],
+                "description": "Create teams",
+                "requestBody": {
+                    "description": "Save Team Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Teams"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New teams is update",
+                        "schema": {
+                            "$ref": "#/definitions/Teams"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete team with teamId",
+                "tags": [
+                    "Teams"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Team is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Teams"
+                        }
+                    }
+                }
+            }
+        },
+        "/team/getByUser/:userId": {
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID team want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Teams"
+                ],
+                "summary": "Get teams by User Id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Teams"
+                        }
+                    }
+                }
+            }
+        },
+        "/log": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Log"
+                ],
+                "summary": "Get all log",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Log"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Log"
+                ],
+                "summary": "Create log",
+                "requestBody": {
+                    "description": "Save Log Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Log"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New log is created",
+                        "schema": {
+                            "$ref": "#/definitions/Teams"
+                        }
+                    }
+                }
+            }
+        },
+        "/log/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID team want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Log"
+                ],
+                "summary": "Update log",
+                "requestBody": {
+                    "description": "Save Log Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Log"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New log is update",
+                        "schema": {
+                            "$ref": "#/definitions/Log"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/log/getByObject/{objectType}/{objectId}": {
+            "parameters": [
+                {
+                    "name": "objectType",
+                    "in": "path",
+                    "required": true,
+                    "description": "ObjectType  want find",
+                    "type": "string"
+                },
+                {
+                    "name": "objectId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ObjectID  want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Log"
+                ],
+                "summary": "Get all log byType and ById" ,
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Log"
+                        }
+                    }
+                }
+            }
+        },
+        "/member" : {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Member"
+                ],
+                "summary": "Get all member",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Member"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Member"
+                ],
+                "summary": "Create member",
+                "requestBody": {
+                    "description": "Save Member Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Member"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New member is created",
+                        "schema": {
+                            "$ref": "#/definitions/Member"
+                        }
+                    }
+                }
+            }
+        },
+        "/member/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID team want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Member"
+                ],
+                "summary": "Update member",
+                "requestBody": {
+                    "description": "Save Member Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Member"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Member is update",
+                        "schema": {
+                            "$ref": "#/definitions/Member"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete member with id",
+                "tags": [
+                    "Member"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Member is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Member"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/progress": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Progress"
+                ],
+                "summary": "Get all progress",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Progress"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Progress"
+                ],
+                "summary": "Create progress",
+                "requestBody": {
+                    "description": "Save Progress Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Progress"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New progress is created",
+                        "schema": {
+                            "$ref": "#/definitions/Progress"
+                        }
+                    }
+                }
+            }
+        },
+        "/progress/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID progress want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Progress"
+                ],
+                "summary": "Update progress",
+                "requestBody": {
+                    "description": "Save progress Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Progress"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Progress is update",
+                        "schema": {
+                            "$ref": "#/definitions/Progress"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Progress with id",
+                "tags": [
+                    "Progress"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Progress is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Progress"
+                        }
+                    }
+                }
+            }
+        },
+        "/progress/getByProject/{projectId}": {
+            "parameters": [
+                {
+                    "name": "projectId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ProjectID want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Progress"
+                ],
+                "summary": "Get all progress by ProjectId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Progress"
+                        }
+                    }
+                }
+            }
+        },
+        "/progressc": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "ProgressComments"
+                ],
+                "summary": "Create progressComment",
+                "requestBody": {
+                    "description": "Save ProgressComment Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/ProgressComments"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New progressComment is created",
+                        "schema": {
+                            "$ref": "#/definitions/ProgressComments"
+                        }
+                    }
+                }
+            }
+        },
+        "/progressc/getByProgress/{progressId}": {
+            "parameters": [
+                {
+                    "name": "progressId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ProjectID want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "ProgressComments"
+                ],
+                "summary": "Get all progressComment",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ProgressComments"
+                        }
+                    }
+                }
+            }
+        },
+        "/progressc/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ProjectID want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "ProgressComments"
+                ],
+                "summary": "Update ProgressComments",
+                "requestBody": {
+                    "description": "Save ProgressComments Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/ProgressComments"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ProgressComments is update",
+                        "schema": {
+                            "$ref": "#/definitions/ProgressComments"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete ProgressComments with id",
+                "tags": [
+                    "ProgressComments"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ProgressComments is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/ProgressComments"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/project": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Get all Projects",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Projects"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Create Projects",
+                "requestBody": {
+                    "description": "Save Projects Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Projects"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Projects is created",
+                        "schema": {
+                            "$ref": "#/definitions/Projects"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Get all Projects byId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Projects"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Update Projects",
+                "requestBody": {
+                    "description": "Save Projects Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Projects"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Projects is update",
+                        "schema": {
+                            "$ref": "#/definitions/Projects"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Projects with id",
+                "tags": [
+                    "Projects"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Projects is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Projects"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/project/getByTeam/{teamId}": {
+            "parameters": [
+                {
+                    "name": "teamId",
+                    "in": "path",
+                    "required": true,
+                    "description": "teamId want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Get all Projects By TeamId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Projects"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/getByUser/{userId}": {
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "userId want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Get all Projects By UserId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Projects"
+                        }
+                    }
+                }
+            }
+        },
+        "/repo": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Repo"
+                ],
+                "summary": "Get all Repo",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Repo"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Repo"
+                ],
+                "summary": "Create Repo",
+                "requestBody": {
+                    "description": "Save Repo Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Repo"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Repo is created",
+                        "schema": {
+                            "$ref": "#/definitions/Repo"
+                        }
+                    }
+                }
+            }
+        },
+        "/repo/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Repo"
+                ],
+                "summary": "Get all Repo ById",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Repo"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Repo"
+                ],
+                "summary": "Update Repo",
+                "requestBody": {
+                    "description": "Save Repo Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Repo"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Repo is update",
+                        "schema": {
+                            "$ref": "#/definitions/Repo"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Repo with id",
+                "tags": [
+                    "Repo"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Repo is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Repo"
+                        }
+                    }
+                }
+            }
+        },
+        "/role": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Get all Roles",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Roles"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Create Roles",
+                "requestBody": {
+                    "description": "Save Progress Roles",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Roles"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Roles is created",
+                        "schema": {
+                            "$ref": "#/definitions/Roles"
+                        }
+                    }
+                }
+            }
+        },
+        "/role/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Get all role byId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Roles"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Update roles",
+                "requestBody": {
+                    "description": "Save Roles Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Roles"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Roles is update",
+                        "schema": {
+                            "$ref": "#/definitions/Roles"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Roles with id",
+                "tags": [
+                    "Roles"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Roles is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Roles"
+                        }
+                    }
+                }
+            }
+        },
+        "/section": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Sections"
+                ],
+                "summary": "Create Sections",
+                "requestBody": {
+                    "description": "Save Sections Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Sections"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Sections is created",
+                        "schema": {
+                            "$ref": "#/definitions/Sections"
+                        }
+                    }
+                }
+            }
+        },
+        "/section/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Sections"
+                ],
+                "summary": "Update Sections",
+                "requestBody": {
+                    "description": "Save Sections Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Sections"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sections is update",
+                        "schema": {
+                            "$ref": "#/definitions/Sections"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Sections with id",
+                "tags": [
+                    "Sections"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sections is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Sections"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/section/getByProject/{progressId}": {
+            "parameters": [
+                {
+                    "name": "progressId",
+                    "in": "path",
+                    "required": true,
+                    "description": "progressId want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Sections"
+                ],
+                "summary": "Get all Sections by ProgressId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Sections"
+                        }
+                    }
+                }
+            }
+        },
+        "/status": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Statuses"
+                ],
+                "summary": "Get all Statuses",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Statuses"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Statuses"
+                ],
+                "summary": "Create Statuses",
+                "requestBody": {
+                    "description": "Save Statuses Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Statuses"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Statuses is created",
+                        "schema": {
+                            "$ref": "#/definitions/Statuses"
+                        }
+                    }
+                }
+            }
+        },
+        "/status/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Statuses"
+                ],
+                "summary": "Update Statuses",
+                "requestBody": {
+                    "description": "Save Statuses Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Statuses"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Statuses is update",
+                        "schema": {
+                            "$ref": "#/definitions/Statuses"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Statuses with id",
+                "tags": [
+                    "Statuses"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Statuses is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Statuses"
+                        }
+                    }
+                }
+            }
+        },
+        "/task": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Create Tasks",
+                "requestBody": {
+                    "description": "Save Tasks Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Tasks"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Tasks is created",
+                        "schema": {
+                            "$ref": "#/definitions/Tasks"
+                        }
+                    }
+                }
+            }
+        },
+        "/task/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Update Tasks",
+                "requestBody": {
+                    "description": "Save Tasks Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Tasks"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tasks is update",
+                        "schema": {
+                            "$ref": "#/definitions/Tasks"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Tasks with id",
+                "tags": [
+                    "Tasks"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tasks is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Tasks"
+                        }
+                    }
+                }
+            }
+        },
+        "/task/getByUser/{ownerId}": {
+            "parameters": [
+                {
+                    "name": "ownerId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ownerId want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Get all Tasks By OwnerId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Tasks"
+                        }
+                    }
+                }
+            }
+        },
+        "/taska": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "TaskAttachments"
+                ],
+                "summary": "Create TaskAttachments",
+                "requestBody": {
+                    "description": "Save TaskAttachments Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/TaskAttachments"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New TaskAttachments is created",
+                        "schema": {
+                            "$ref": "#/definitions/TaskAttachments"
+                        }
+                    }
+                }
+            }
+        },
+        "/taska/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "TaskAttachments"
+                ],
+                "summary": "Update TaskAttachments",
+                "requestBody": {
+                    "description": "Save TaskAttachments Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/TaskAttachments"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "TaskAttachments is update",
+                        "schema": {
+                            "$ref": "#/definitions/TaskAttachments"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete TaskAttachments with id",
+                "tags": [
+                    "TaskAttachments"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "TaskAttachments is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/TaskAttachments"
+                        }
+                    }
+                }
+            }
+        },
+        "/taska/getByTask/{taskId}": {
+            "parameters": [
+                {
+                    "name": "taskId",
+                    "in": "path",
+                    "required": true,
+                    "description": "taskId want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "TaskAttachments"
+                ],
+                "summary": "Get all TaskAttachments",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/TaskAttachments"
+                        }
+                    }
+                }
+            }
+        },
+        "/taskc": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "TaskComments"
+                ],
+                "summary": "Create TaskComments",
+                "requestBody": {
+                    "description": "Save TaskComments Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/TaskComments"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New TaskComments is created",
+                        "schema": {
+                            "$ref": "#/definitions/TaskComments"
+                        }
+                    }
+                }
+            }
+        },
+        "/taskc/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "TaskComments"
+                ],
+                "summary": "Update TaskComments",
+                "requestBody": {
+                    "description": "Save TaskComments Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/TaskComments"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "TaskComments is update",
+                        "schema": {
+                            "$ref": "#/definitions/TaskComments"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete TaskComments with id",
+                "tags": [
+                    "TaskComments"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "TaskComments is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/TaskComments"
+                        }
+                    }
+                }
+            }
+        },
+        "/taskc/getByTask/{taskId}": {
+            "parameters": [
+                {
+                    "name": "taskId",
+                    "in": "path",
+                    "required": true,
+                    "description": "taskId want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "TaskComments"
+                ],
+                "summary": "Get all TaskComments By TaskId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/TaskComments"
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all Users",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create Users",
+                "requestBody": {
+                    "description": "Save Users Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Users"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Users is created",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "id want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all Users By Id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update Users",
+                "requestBody": {
+                    "description": "Save Users Request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Users"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users is update",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Delete Users with id",
+                "tags": [
+                    "Users"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/userRole": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "UserRoles"
+                ],
+                "summary": "Get all UserRoles",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRoles"
+                        }
+                    }
+                }
+            }
+        },
+        "/userRole/getRoleByUser": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "UserRoles"
+                ],
+                "summary": "Get all UserRoles By User",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRoles"
+                        }
+                    }
+                }
+            }
+        },
+        "/userRole/getUserByRole/{roleId}": {
+            "parameters": [
+                {
+                    "name": "roleId",
+                    "in": "path",
+                    "required": true,
+                    "description": "roleId want find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "UserRoles"
+                ],
+                "summary": "Get all UserRoles By RoleId",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRoles"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Teams": {
+            "required": [
+                "manager",
+                "status"
+            ],
+            "properties": {
+                "name": {
+                    "description": "name of team",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "description of team",
+                    "type": "string",
+                    "nullable": true
+                },
+                "manager": {
+                    "description": "list of team's managers, contains one or many User.id",
+                    "type": "string",
+                    "example": "[0,1,3]"
+                },
+                "member": {
+                    "description": "list of team's members, contains one or many User.id, select from Member where Team.id = Member.team",
+                    "type": "string",
+                    "nullable": true,
+                    "example": "[0,1,3]"
+                },
+                "status": {
+                    "description": "status of team, contains Status.id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Log": {
+            "description": "The Log holds information about a log to record user's action in app",
+            "type": "object",
+            "required": [
+                "id",
+                "subject",
+                "objecttype",
+                "objectid",
+                "when",
+                "content"
+            ],
+            "properties": {
+                "id": {
+                    "description": "unique id, auto gen",
+                    "example": "1",
+                    "type": "integer",
+                    "format": "int32",
+                    "uniqueItems": true,
+                    "readOnly": true
+                },
+                "subject": {
+                    "description": "user who took action, contains user.id",
+                    "example": "1",
+                    "type": "string"
+                },
+                "object_type": {
+                    "description": "type of object effected by action",
+                    "example": "task",
+                    "type": "string"
+                },
+                "object_id": {
+                    "description": "id of object",
+                    "example": "10",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "when": {
+                    "description": "moment when user took action",
+                    "example": "2012-04-23T18:25:43.511Z",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "content": {
+                    "description": "log detail",
+                    "example": "delete",
+                    "type": "string"
+                }
+            }
+        },
+        "Member": {
+            "description": "The Member holds information about a team-user relationship",
+            "type": "object",
+            "required": [
+                "id",
+                "user",
+                "team",
+                "status"
+            ],
+            "properties": {
+                "user_id": {
+                    "description": "contains User.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "team_id": {
+                    "description": "contains Team.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "report_to": {
+                    "description": "boss of user in team, contains User.id",
+                    "type": "integer",
+                    "format": "int32",
+                    "nullable": true
+                },
+                "status": {
+                    "description": "status of user in team, contains Status.id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Progress": {
+            "description": "The Progress holds information about an update (news) of a project in writing",
+            "type": "object",
+            "required": [
+                "id",
+                "title",
+                "content",
+                "project",
+                "by",
+                "when"
+            ],
+            "properties": {
+                "id": {
+                    "description": "unique id, auto gen",
+                    "type": "integer",
+                    "format": "int32",
+                    "uniqueItems": true,
+                    "readOnly": true
+                },
+                "title": {
+                    "description": "title of progress",
+                    "type": "string"
+                },
+                "content": {
+                    "description": "content of progress",
+                    "type": "string"
+                },
+                "project": {
+                    "description": "project which progress belongs to, contains Project.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "by": {
+                    "description": "user who compose progress, contains User.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "when": {
+                    "description": "moment when user compose or update progress",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "ProgressComments": {
+            "description": "The Progress Comment holds information about a comment to Progress",
+            "type": "object",
+            "required": [
+                "id",
+                "progress",
+                "content",
+                "by",
+                "when"
+            ],
+            "properties": {
+                "progress": {
+                    "description": "progress which comment belongs to, contains Progress.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "by": {
+                    "description": "user who compose comment, contains User.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "when": {
+                    "description": "moment when user compose or update comment",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "content": {
+                    "description": "content of comment",
+                    "type": "string"
+                },
+                "reply_to": {
+                    "description": "comment which this comment reply to, contains ProgressComment.id",
+                    "type": "integer",
+                    "format": "int32",
+                    "nullable": true
+                }
+            }
+        },
+        "Projects": {
+            "description": "The Project holds information about a project",
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "team",
+                "manager",
+                "repo",
+                "status"
+            ],
+            "properties": {
+                "name": {
+                    "description": "name of project",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "description of project",
+                    "type": "string",
+                    "nullable": true
+                },
+                "team_id": {
+                    "description": "team which project belong to, contains Team.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "manager": {
+                    "description": "list of project's manager, contains one or many User.id",
+                    "type": "string"
+                },
+                "doer": {
+                    "description": "list of project's member, contains one or many User.id",
+                    "type": "string",
+                    "nullable": true
+                },
+                "advisor": {
+                    "description": "list of project's advisor, contains one or many User.id",
+                    "type": "string",
+                    "nullable": true
+                },
+                "repo_id": {
+                    "description": "repository node of project, contains Repo.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "status": {
+                    "description": "status of project, contains Status.id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Repo": {
+            "description": "The Repo holds information about a project repository",
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "order",
+                "status"
+            ],
+            "properties": {
+                "name": {
+                    "description": "name of repository node",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "parent of this node, contains Repo.id",
+                    "type": "integer",
+                    "format": "int32",
+                    "nullable": true
+                },
+                "order_no": {
+                    "description": "sort order of this node",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "status": {
+                    "description": "status of project, contains Status.id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Roles": {
+            "description": "The Roles holds information about a user",
+            "type": "object",
+            "required": [
+                "id",
+                "roleName"
+            ],
+            "properties": {
+                "roleName": {
+                    "description": "unique role_name, used to login",
+                    "type": "string",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "Sections": {
+            "description": "The Section holds information about a section which contains project's tasks",
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "project"
+            ],
+            "properties": {
+                "id": {
+                    "description": "unique id, auto gen",
+                    "type": "integer",
+                    "format": "int32",
+                    "uniqueItems": true,
+                    "readOnly": true
+                },
+                "name": {
+                    "description": "name of project",
+                    "type": "string"
+                },
+                "project": {
+                    "description": "project which section belong to, contains Project.id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Statuses": {
+            "description": "The Status holds information about an status for all object in app",
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "value",
+                "type",
+                "order"
+            ],
+            "properties": {
+                "name": {
+                    "description": "name to show in UI",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "value to use in UI",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "type of status, related to object types",
+                    "type": "string"
+                },
+                "orderNo": {
+                    "description": "sort order of status in dropdown",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Tasks": {
+            "description": "The Task holds information about a task",
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "section",
+                "owner",
+                "status"
+            ],
+            "properties": {
+                "name": {
+                    "description": "name of task",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "description of task",
+                    "type": "string",
+                    "nullable": true
+                },
+                "section_id": {
+                    "description": "section in which task belong to, contains Section.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "owner": {
+                    "description": "owner of task, contains User.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "assignee": {
+                    "description": "list of task's assignee, contains one of many User.id",
+                    "type": "string",
+                    "nullable": true
+                },
+                "follower": {
+                    "description": "list of task's follower, contains one of many User.id",
+                    "type": "string",
+                    "nullable": true
+                },
+                "parent": {
+                    "description": "parent of task, contains Task.id",
+                    "type": "integer",
+                    "format": "int32",
+                    "nullable": true
+                },
+                "status": {
+                    "description": "status of project, contains Status.id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "TaskAttachments": {
+            "description": "The Task Attachment holds information about an attachment to task",
+            "type": "object",
+            "required": [
+                "id",
+                "task",
+                "by",
+                "when",
+                "link",
+                "filename"
+            ],
+            "properties": {
+                "task": {
+                    "description": "task which attachment attachs to, contains Task.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "by": {
+                    "description": "user who attach file, contains User.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "when": {
+                    "description": "moment when user attach file",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "link": {
+                    "description": "part of URL to file",
+                    "type": "string"
+                },
+                "filename": {
+                    "description": "filename to showing in UI and to name when downloaded",
+                    "type": "string"
+                }
+            }
+        },
+        "TaskComments": {
+            "description": "The Task Comment holds information about a comment to task",
+            "type": "object",
+            "required": [
+                "id",
+                "task",
+                "by",
+                "when",
+                "content"
+            ],
+            "properties": {
+                "task": {
+                    "description": "task which comment to, contains Task.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "by": {
+                    "description": "user who comment, contains User.id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "when": {
+                    "description": "moment when user post or update comment",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "content": {
+                    "description": "content of comment",
+                    "type": "string",
+                    "nullable": true
+                },
+                "replyto": {
+                    "description": "comment which this comment reply to",
+                    "type": "integer",
+                    "format": "int32",
+                    "nullable": true
+                },
+                "attachment": {
+                    "description": "list of attachment, contains one or many TaskAttachment.id",
+                    "type": "string",
+                    "nullable": true
+                }
+            }
+        },
+        "Users": {
+            "description": "The User holds information about a user",
+            "type": "object",
+            "required": [
+                "id",
+                "username",
+                "status"
+            ],
+            "properties": {
+                "username": {
+                    "description": "unique username, used to login",
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "email": {
+                    "description": "unique email address, used to receive update",
+                    "type": "string",
+                    "nullable": true
+                },
+                "status": {
+                    "description": "status of user, contains Status.id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "UserRoles": {
+            "description": "The UserRoles holds information about a user",
+            "type": "object",
+            "required": [
+                "id",
+                "user_id",
+                "role_id"
+            ],
+            "properties": {
+                "id": {
+                    "description": "unique id, auto gen",
+                    "type": "integer",
+                    "format": "int32",
+                    "uniqueItems": true,
+                    "readOnly": true
+                },
+                "user_id": {
+                    "description": "unique user_id, used to login",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "roles": {
+                    "description": "unique role_id, used to login",
+                    "type": "string",
+                    "example": "{1 , 2}"
+                }
+            }
+        }
+    }
+}

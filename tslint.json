@@ -1,0 +1,30 @@
+{
+    "defaultSeverity":"error",
+    "extends":[
+        "tslint:recommended"
+    ],
+    "jsRules":{
+
+    },
+    "rules":{
+        "max-line-length":[
+            true,
+            {
+                "limit":400,
+                "ignore-pattern":"^import [^,]+ from |^export | implements"
+            }
+        ],
+        "trailing-comma": false,
+        "object-literal-sort-keys": false,
+        "no-shadowed-variable": false,
+        "ordered-imports": false,
+        "no-var-requires": false,
+        "object-literal-shorthand": false,
+        "no-trailing-whitespace": false,
+        "no-empty-interface": false,
+        "no-string-literal": false
+    },
+    "rulesDirectory":[
+
+    ]
+}

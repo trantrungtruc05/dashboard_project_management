@@ -1,0 +1,5 @@
+{"message":"[ERROR] save Log SequelizeDatabaseError: null value in column \"objecttype\" violates not-null constraint","level":"error"}
+{"message":"[ERROR] save Log SequelizeDatabaseError: null value in column \"objecttype\" violates not-null constraint","level":"error"}
+{"message":"[ERROR] save Log SequelizeDatabaseError: null value in column \"objecttype\" violates not-null constraint","level":"error"}
+{"message":"[ERROR] getByObject Log SequelizeDatabaseError: column Log.objectType does not exist","level":"error"}
+{"message":"[ERROR] getByObject Log SequelizeDatabaseError: column Log.objectType does not exist","level":"error"}
